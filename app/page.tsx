@@ -23,7 +23,7 @@ export default async function BookListPage() {
   return (
     <div className="p-10 flex flex-col items-center mt-10">
       <h1 className="text-5xl underline">Book List</h1>
-      <table className="mt-15 w-full border-collapse">
+      <table className="mt-16 w-full border-collapse">
         <thead>
           <tr className="bg-gray-100">
             <th className="border p-2">Title</th>
