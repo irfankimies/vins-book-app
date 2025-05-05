@@ -56,31 +56,33 @@ export default async function BookDetailPage({ params }: Props) {
   const formattedDate = format(new Date(book.published), "dd/MM/yyyy");
 
   return (
-    <div className="p-10 w-120 mx-auto">
-      <h1 className="py-5 text-3xl font-bold">{book.title}</h1>
+    <div className="p-10 w-full mx-auto">
+      <h1 className="py-5 text-3xl font-bold underline">{book.title}</h1>
       <img
         src={`https://picsum.photos/seed/${params.id}/480/640`}
         alt={book.title}
-        className="h-64 w-80 rounded-lg mb-4 object-cover"
+        className="h-[450px] w-[700px] rounded-lg mb-4 object-cover"
       />
-      <p>
-        <strong>Author:</strong> {book.author}
-      </p>
-      <p>
-        <strong>Genre:</strong> {book.genre}
-      </p>
-      <p>
-        <strong>Description:</strong> {book.description}
-      </p>
-      <p>
-        <strong>ISBN:</strong> {book.isbn}
-      </p>
-      <p>
-        <strong>Published:</strong> {formattedDate}
-      </p>
-      <p>
-        <strong>Publisher:</strong> {book.publisher}
-      </p>
+      <div className="mt-15 text-2xl w-[750px] flex flex-col gap-5">
+        <p>
+          <strong>Author:</strong> {book.author}
+        </p>
+        <p>
+          <strong>Genre:</strong> {book.genre}
+        </p>
+        <p>
+          <strong>Description:</strong> {book.description}
+        </p>
+        <p>
+          <strong>ISBN:</strong> {book.isbn}
+        </p>
+        <p>
+          <strong>Published:</strong> {formattedDate}
+        </p>
+        <p>
+          <strong>Publisher:</strong> {book.publisher}
+        </p>
+      </div>
     </div>
   );
 }
