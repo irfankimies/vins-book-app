@@ -1,4 +1,4 @@
-// app/layout.tsx
+import "./globals.css";
 export const metadata = {
   title: "Book App",
   description: "VINS SSR Test",
