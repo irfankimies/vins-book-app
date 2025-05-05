@@ -1,36 +1,155 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+📚 Vins Book App
+A Next.js application and SQL task submission developed for the Software Engineer Technical Test at Vin's Automotive Group.
 
-## Getting Started
+This app fetches and displays book data from the FakerAPI, and includes SQL tasks demonstrating database querying and schema design.
 
-First, run the development server:
+📦 Part 1: Next.js Application
+✨ Features
+📖 Book List Page
+Displays 10 books in a table format, including title, author, genre, description, ISBN, published date, and publisher. Each title links to its detailed page.
 
-```bash
+🔍 Book Detail Page
+Shows comprehensive details for a selected book, including a cover image.
+
+⚠️ Error Handling
+Gracefully handles fetch failures and missing data with user-friendly messages.
+
+📱 Responsive Design
+Styled with Tailwind CSS for a clean and responsive UI.
+
+⚙️ Tech Stack
+Area	Technology
+Framework	Next.js
+API	FakerAPI
+Styling	Tailwind CSS
+Date Utility	date-fns
+Language	TypeScript
+
+🛠 Setup Instructions
+✅ Prerequisites
+Node.js (v16 or higher)
+
+npm or yarn
+
+📥 Installation
+bash
+Copy
+Edit
+git clone https://github.com/irfankimies/vins-book-app.git
+cd vins-book-app
+
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3000/book in your browser.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🗂 Project Structure
+txt
+Copy
+Edit
+app/book/page.tsx        - Book list page
+app/book/[id]/page.tsx   - Book detail page
+app/globals.css          - Global styles (Tailwind CSS)
+💡 Notes on Implementation
+Dynamic Mock Data
+FakerAPI returns different data on each fetch. Detail pages use _seed=${params.id} for consistency, though variations may still occur.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Image Source
+Uses Picsum Photos with book ID as seed.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Potential Improvement
+To stabilize book data, a local JSON file or API caching could be used.
 
-## Learn More
+⚠️ Known Limitations
+Data inconsistency due to FakerAPI’s dynamic nature.
 
-To learn more about Next.js, take a look at the following resources:
+Requires an internet connection to fetch book data.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🧪 How to Test
+Visit /book to view the book list.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Click a book title to view details (e.g., /book/1).
 
-## Deploy on Vercel
+Test error handling by:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Disconnecting your internet.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Navigating to an invalid book ID (e.g., /book/9999).
+
+🧾 Part 2: SQL Tasks
+SQL scripts demonstrate data retrieval and schema design using a MySQL-compatible database.
+
+📊 Task 3a_i: Department Employee Count
+File: task_3a_i.sql
+
+Description: Counts employees in each department.
+
+🔍 Features
+Joins Employee and Department tables.
+
+Groups by Department.Code.
+
+Outputs: DepartmentCode, TotalEmployees.
+
+💰 Task 3a_ii: Employee Salary Filter
+File: task_3a_ii.sql
+
+Description: Lists employees with salary between 3000–4000.
+
+🔍 Features
+Joins Employee and Department.
+
+Filters with BETWEEN 3000 AND 4000.
+
+Orders by Department.Code and Employee.Name.
+
+Outputs: EmployeeCode, Name, Salary, DepartmentCode.
+
+🎓 Task 3b: Academic Database Schema
+File: task_3b.sql
+
+Description: Schema for managing subjects, classes, students, and enrollments.
+
+🏗 Tables
+Subjects: Subject names (auto-increment ID).
+
+Semesters: Year, term number, date ranges.
+
+Classes: Subject, semester, class number, timing.
+
+Students: Name, email, DOB.
+
+Enrollments: Student enrollment status (active, dropped, completed).
+
+🛡 Constraints
+Primary & foreign keys
+
+Unique constraints
+
+Checks for valid data (e.g., term_number BETWEEN 1 AND 4)
+
+🧪 Sample Data
+Default subjects inserted: Math, Science, English
+
+Sample semester insert is commented out for flexible testing.
+
+🧪 How to Test SQL Tasks
+🧱 Database Setup
+Use a MySQL-compatible database.
+
+Run task_3b.sql to set up schema and data.
+
+📈 Execute Queries
+Ensure Employee and Department tables exist.
+
+Run task_3a_i.sql and task_3a_ii.sql in a SQL client.
+
+🧪 Verify Schema
+Check constraints, data types, and sample data.
+
+Try inserting additional sample rows to test integrity.
+
+📬 Contact
+For questions or feedback, please reach out via [your email] or open an issue in the repository.
